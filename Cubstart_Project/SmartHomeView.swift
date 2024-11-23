@@ -37,69 +37,84 @@ struct SmartHomeView: View {
                 }
                 .padding()
 
-                // Room Selection (You can add more rooms as needed)
                 HStack {
-                    Button(action: {}) {
+                    Button(action: {
+                        // Living Room action
+                    }) {
                         Text("Living Room")
-                            .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.gray.opacity(0.1))
+                            .frame(maxWidth: .infinity)
+                            .background(Color(.systemGray5))
                             .cornerRadius(10)
                     }
-                    Button(action: {}) {
-                        Text("Kitchen")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.gray.opacity(0.1))
-                            .cornerRadius(10)
+                    Button(action: {
+                        // Navigate to SmartTVView
+                    }) {
+                        NavigationLink(destination: SmartTVView()) {
+                            Text("Smart TV")
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color(.systemGray5))
+                                .cornerRadius(10)
+                        }
                     }
                 }
                 .padding()
 
-                // Scheduler
-                HStack {
-                    Image(systemName: "calendar")
-                    Text("Scheduler")
-                    Spacer()
-                    Toggle("", isOn: $isSchedulerOn)
-                        .toggleStyle(SwitchToggleStyle(tint: .blue))
-                }
-                .padding()
+                ToggleRow(iconName: "calendar", title: "Scheduler", isOn: $isSchedulerOn)
+                Divider()
 
-                // Device Cards
-                VStack(spacing: 16) {
-                    DeviceCard(title: "HomePod", isOn: $isHomePodOn)
-                    DeviceCard(title: "AC", isOn: $isACOn)
-                    DeviceCard(title: "Smart TV", isOn: $isSmartTVOn)
-                    DeviceCard(title: "Light", isOn: $isLightOn)
+                VStack {
+                    DeviceToggleRow(deviceName: "HomePod", isOn: $isHomePodOn)
+                    DeviceToggleRow(deviceName: "AC", isOn: $isACOn)
+                    DeviceToggleRow(deviceName: "Smart TV", isOn: $isSmartTVOn)
+                    DeviceToggleRow(deviceName: "Light", isOn: $isLightOn)
                 }
-                .padding()
             }
-            .navigationTitle("Smart Home")
+            .padding()
+            .navigationBarTitle("Smart Home", displayMode: .inline)
         }
     }
 }
 
-struct DeviceCard: View {
+// Reusable rows
+struct ToggleRow: View {
+    let iconName: String
     let title: String
     @Binding var isOn: Bool
 
     var body: some View {
         HStack {
-            Image(systemName: "circle.fill")
-                .font(.largeTitle)
+            Image(systemName: iconName)
                 .foregroundColor(.blue)
             Text(title)
+            Spacer()
+            Toggle("", isOn: $isOn)
+                .toggleStyle(SwitchToggleStyle(tint: .blue))
+        }
+        .padding()
+    }
+}
+
+struct DeviceToggleRow: View {
+    let deviceName: String
+    @Binding var isOn: Bool
+
+    var body: some View {
+        HStack {
+            Circle()
+                .fill(Color.blue)
+                .frame(width: 20, height: 20)
+            Text(deviceName)
                 .font(.headline)
             Spacer()
             Toggle("", isOn: $isOn)
                 .toggleStyle(SwitchToggleStyle(tint: .blue))
             Button(action: {}) {
                 Image(systemName: "gear")
+                    .foregroundColor(.blue)
             }
         }
-        .padding()
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(10)
+        .padding(.vertical, 10)
     }
 }
