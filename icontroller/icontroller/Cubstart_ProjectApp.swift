@@ -12,6 +12,7 @@ struct Cubstart_ProjectApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [SmartDevice.self])
         }
     }
 }

@@ -7,12 +7,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     var body: some View {
         NavigationView {
             SmartHomeView()
                 .navigationTitle("Smart Home")
+                .modelContainer(for: SmartDevice.self, inMemory: true)
         }
     }
 }
