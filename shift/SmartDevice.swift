@@ -15,11 +15,8 @@ class SmartDevice {
     var type: DeviceType
     var isOn: Bool
     var roomLocation: String
-<<<<<<< HEAD:shift/SmartDevice.swift
     var icon: String
     var colorName: String // Store color as a string
-=======
->>>>>>> 80c82af36f944af4226e6dad4ee65e966fea7a9b:icontroller/icontroller/SmartDevice.swift
     
     enum DeviceType: String, Codable {
         case light
@@ -29,17 +26,12 @@ class SmartDevice {
         case speaker
     }
     
-<<<<<<< HEAD:shift/SmartDevice.swift
     init(name: String, type: DeviceType, isOn: Bool = false, roomLocation: String = "Unassigned", icon: String = "circle.fill", color: Color = Color.gray) {
-=======
-    init(name: String, type: DeviceType, isOn: Bool = false, roomLocation: String = "Unassigned") {
->>>>>>> 80c82af36f944af4226e6dad4ee65e966fea7a9b:icontroller/icontroller/SmartDevice.swift
         self.id = UUID()
         self.name = name
         self.type = type
         self.isOn = isOn
         self.roomLocation = roomLocation
-<<<<<<< HEAD:shift/SmartDevice.swift
         self.icon = icon
         self.colorName = color.toName()
     }
@@ -112,17 +104,3 @@ extension Color {
     }
 }
 
-=======
-    }
-    
-    // Static method to create default devices
-    static func createDefaultDevices() -> [SmartDevice] {
-        return [
-            SmartDevice(name: "HomePod", type: .speaker, isOn: false, roomLocation: "Living Room"),
-            SmartDevice(name: "AC", type: .thermostat, isOn: false, roomLocation: "Living Room"),
-            SmartDevice(name: "Smart TV", type: .speaker, isOn: false, roomLocation: "Living Room"),
-            SmartDevice(name: "Light", type: .light, isOn: false, roomLocation: "Living Room")
-        ]
-    }
-}
->>>>>>> 80c82af36f944af4226e6dad4ee65e966fea7a9b:icontroller/icontroller/SmartDevice.swift
