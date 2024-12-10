@@ -1,13 +1,13 @@
 //
-//  icontrollerUITestsLaunchTests.swift
-//  icontrollerUITests
+//  shiftUITestsLaunchTests.swift
+//  shiftUITests
 //
-//  Created by cyh on 11/20/24.
+//  Created by 郭城 on 2024/12/9.
 //
 
 import XCTest
 
-final class icontrollerUITestsLaunchTests: XCTestCase {
+final class shiftUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

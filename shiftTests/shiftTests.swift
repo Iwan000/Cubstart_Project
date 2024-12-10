@@ -1,13 +1,14 @@
 //
-//  icontrollerTests.swift
-//  icontrollerTests
+//  shiftTests.swift
+//  shiftTests
 //
-//  Created by cyh on 11/20/24.
+//  Created by 郭城 on 2024/12/9.
 //
 
 import Testing
+@testable import shift
 
-struct icontrollerTests {
+struct shiftTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

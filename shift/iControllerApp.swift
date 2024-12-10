@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Cubstart_ProjectApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [SmartDevice.self, SmartTV.self, ACSettings.self])
         }
     }
 }
