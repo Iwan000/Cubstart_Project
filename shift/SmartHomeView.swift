@@ -32,6 +32,18 @@ struct SmartHomeView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
+                HStack(spacing: 8) {
+                            Image(systemName: "house.fill")  
+                                .font(.title)
+                                .foregroundColor(.blue)
+                            
+                            Text("iController")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                .padding()
+                    
+            
                 HStack {
                     Text("All Devices")
                         .font(.headline)
@@ -100,7 +112,7 @@ struct SmartHomeView: View {
                     .padding()
                 }
             }
-            .navigationTitle("Smart Home")
+            //navigationTitle("iController")
             .sheet(isPresented: $showingSearchDevice) {
                 SearchDeviceView()
             }
